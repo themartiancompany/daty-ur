@@ -36,7 +36,8 @@ groups=(
 )
 source=(
   # "${_pkg}-${pkgver}::git+${url}#tag=${pkgver}")
-  "${url}/-/archive/${pkgver}/${_pkg}-${pkgver}.tar.gz")
+  "${url}/-/archive/${pkgver}/${_pkg}-${pkgver}.tar.gz"
+)
 sha512sums=(
   '4d2aae19b217d0a568c9ba0cfbe1df61fb2695bdec20f7ac4a8fccb9ea97bc8aa9135070c35835736371c880cea2621abb02c9ca2944d455bb66de1c777b4b61'
 )

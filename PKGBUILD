@@ -115,7 +115,7 @@ package() {
   cd \
     "${_pkg}-${pkgver}"
   "${_py}" \
-    setup.py \
+    "setup.py" \
     install \
     --root="${pkgdir}" \
     --optimize=1

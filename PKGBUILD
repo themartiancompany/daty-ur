@@ -28,6 +28,9 @@
 #     <pellegrinoprevete@gmail.com>
 #     <dvorak@0x87003Bd6C074C713783df04f36517451fF34CBEf>
 
+if [[ ! -v "_git" ]]; then
+  _git="false"
+fi
 _py="python"
 _pyver="$( \
   "${_py}" \

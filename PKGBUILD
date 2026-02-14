@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: AGPL-3.0
 
 #    ----------------------------------------------------------------------
-#    Copyright © 2023, 2024, 2025  Pellegrino Prevete
+#    Copyright © 2023, 2024, 2025, 2026  Pellegrino Prevete
 #
 #    All rights reserved
 #    ----------------------------------------------------------------------
@@ -32,14 +32,14 @@ if [[ ! -v "_git" ]]; then
   _git="false"
 fi
 _py="python"
-_pyver="$( \
+_pyver="$(
   "${_py}" \
     -V | \
     awk \
       '{print $2}')"
 _pymajver="${_pyver%.*}"
 _pyminver="${_pymajver#*.}"
-_pynextver="${_pymajver%.*}.$(( \
+_pynextver="${_pymajver%.*}.$((
   ${_pyminver} + 1))"
 _proj="gnome"
 _pkg="Daty"
@@ -115,13 +115,18 @@ source=(
 
 # shellcheck disable=SC2154
 package() {
+  local \
+    _install_opts=()
+  _install_opts+=(
+    --root="${pkgdir}"
+    --optimize=1
+  )
   cd \
     "${_pkg}-${pkgver}"
   "${_py}" \
     "setup.py" \
     install \
-    --root="${pkgdir}" \
-    --optimize=1
+    "${_install_opts[@]}"
 }
 
 # vim:set sw=2 sts=-1 et:
